@@ -35,5 +35,15 @@ public class PlayerController : MonoBehaviour
         {
             animator.Play("Idle");
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            animator.Play("Punch");
+            
+        }
     }
+    IEnumerator DoAttack()
+    {
+        yield return new WaitForSeconds(1f);
+
+    }    
 }
