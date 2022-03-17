@@ -24,26 +24,30 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(joystick.Vertical * 100f, 0, joystick.Horizontal * -100f);
         controller.Move(movement * Time.deltaTime);
-       
-        if(joystick.Vertical > 0.01 || joystick.Horizontal > 0.01 || joystick.Horizontal < -0.01 || joystick.Vertical < -0.01)
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            animator.SetTrigger("Punch");
+
+        }
+        if (joystick.Vertical != 0 || joystick.Horizontal != 0 || joystick.Vertical != 0 && joystick.Horizontal != 0)
             
         {
             gameObject.transform.rotation = Quaternion.LookRotation(movement);
-            animator.Play("Running");
-        }    
+            animator.SetTrigger("Running");
+        }
         else
         {
-            animator.Play("Idle");
+            animator.ResetTrigger("Running");
         }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            animator.Play("Punch");
-            
-        }
+       
+
+        
+       
     }
     IEnumerator DoAttack()
     {
         yield return new WaitForSeconds(1f);
-
+        animator.ResetTrigger("Punch");
     }    
 }
