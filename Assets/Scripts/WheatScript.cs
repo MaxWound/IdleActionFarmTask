@@ -18,6 +18,17 @@ public class WheatScript : MonoBehaviour
     {
         
     }
+    IEnumerator DestroyWithDelay(GameObject go)
+    {
+        GameObject thisGo = go;
+        yield return new WaitForSeconds(4);
+        Destroy(thisGo);
+    }
+    public void LifeOfBrokenWheat(GameObject brokenGO)
+    {
+        brokenGO.transform.GetChild(1).GetComponent<Animator>().Play("WheatBreak");
+        StartCoroutine(DestroyWithDelay(brokenGO));
+    }
     public void BreakWheat(GameObject wheat)
     {
 
@@ -27,8 +38,9 @@ public class WheatScript : MonoBehaviour
         GameObject brokenWheat = wheat.GetComponent<Wheat>().brokenWheat;
         
         Destroy(wheat);
-        GameObject newBrokenWheat = Instantiate(brokenWheat, WheatPos,Quaternion.identity);
-        newBrokenWheat.GetComponent<Animator>().Play("WheatBreak");
+        GameObject newBrokenWheat = Instantiate(brokenWheat, WheatPos, Quaternion.Euler(0, Random.Range(0,360) , 0));
+        LifeOfBrokenWheat(newBrokenWheat);
+        
         
     }
 }
