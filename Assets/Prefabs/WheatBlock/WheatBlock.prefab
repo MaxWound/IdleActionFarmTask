@@ -108,4 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e05eddccffdfd4893e121a7f34f873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableObject: {fileID: 11400000, guid: d5945a13730dc2b478accde795c27946, type: 2}
+  duration: 0.01
+  BackTransform: {fileID: 0}
+  wheatBlockSO: {fileID: 11400000, guid: d5945a13730dc2b478accde795c27946, type: 2}

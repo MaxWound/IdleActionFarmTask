@@ -7,7 +7,7 @@ public class WheatBlockSO : ScriptableObject
 
 {
     
-    [SerializeField]
-    private int Count = 1;
+    
+    public int Count = 1;
     
 }

@@ -18,13 +18,15 @@ public class Wheat : MonoBehaviour
         Serp = GameObject.Find("Serp");
         wheatScript = GameObject.Find("Ambar").GetComponent<WheatScript>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "Serp")
         {
             wheatScript.BreakWheat(gameObject);
         }
     }
+    
+    
 
 
 
