@@ -10,8 +10,11 @@ public class Wheat : MonoBehaviour
     public GameObject Serp;
     public int CountOfWheat;
     public GameObject brokenWheat;
+    public GameObject wheatBlock;
+    public Vector3 blockSpawnerPos;
     private void Start()
     {
+        blockSpawnerPos = transform.GetChild(0).transform.position;
         Serp = GameObject.Find("Serp");
         wheatScript = GameObject.Find("Ambar").GetComponent<WheatScript>();
     }

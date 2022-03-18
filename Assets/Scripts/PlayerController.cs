@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         controller = gameObject.GetComponent<CharacterController>();
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
+        joystick = GameObject.Find("Floating Joystick").GetComponent<Joystick>();
     }
 
     // Update is called once per frame
@@ -44,6 +44,18 @@ public class PlayerController : MonoBehaviour
 
         
        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "WheatBlock")
+        {
+            PickUpLogic(other.gameObject);
+
+        }
+    }
+    void PickUpLogic(GameObject block)
+    {
+        Destroy(block);
     }
     IEnumerator DoAttack()
     {

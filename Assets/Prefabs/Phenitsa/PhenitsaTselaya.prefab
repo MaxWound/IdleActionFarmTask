@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &862629790644028842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8740585825500249444}
+  m_Layer: 0
+  m_Name: BlockSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8740585825500249444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862629790644028842}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1730653117160208225}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391422600570334683
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +43,7 @@ GameObject:
   - component: {fileID: 598889739824548878}
   - component: {fileID: 5210423007962696035}
   - component: {fileID: 1496522680862160187}
+  - component: {fileID: 3646041646619675893}
   m_Layer: 0
   m_Name: PhenitsaTselaya
   m_TagString: Untagged
@@ -30,7 +61,8 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 314.76224, y: 0.0000076293945, z: 545.2205}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children: []
+  m_Children:
+  - {fileID: 8740585825500249444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,3 +144,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3646041646619675893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391422600570334683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16eedc9dc6ead4d47bcf1ea441a6fb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Serp: {fileID: 0}
+  CountOfWheat: 1
+  brokenWheat: {fileID: 285582075238358355, guid: 550dd0557d11e504c863301a63f53f57, type: 3}
+  wheatBlock: {fileID: 915588638448907646, guid: 021de9749eee36241b9d76ceeb7a7ff8, type: 3}
+  blockSpawnerPos: {x: 0, y: 0, z: 0}

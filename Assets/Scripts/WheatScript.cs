@@ -36,9 +36,11 @@ public class WheatScript : MonoBehaviour
         Vector3 WheatPos = WheatTransform.position;
         Quaternion WheatRot = WheatTransform.rotation;
         GameObject brokenWheat = wheat.GetComponent<Wheat>().brokenWheat;
-        
+        GameObject wheatBlock = wheat.GetComponent<Wheat>().wheatBlock;
+        Vector3 spawnBlockPos = wheat.GetComponent<Wheat>().blockSpawnerPos;
         Destroy(wheat);
         GameObject newBrokenWheat = Instantiate(brokenWheat, WheatPos, Quaternion.Euler(0, Random.Range(0,360) , 0));
+        Instantiate(wheatBlock, spawnBlockPos   , Quaternion.Euler(0, Random.Range(0, 360), 0));
         LifeOfBrokenWheat(newBrokenWheat);
         
         
