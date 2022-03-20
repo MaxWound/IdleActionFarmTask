@@ -33,6 +33,8 @@ public class UIScript : MonoBehaviour
         invFull = false;
         MoneyText = GameObject.Find("MoneyCounter").GetComponent<TMP_Text>();
         CounterText = GameObject.Find("BlocksCounter").GetComponent<TMP_Text>();
+        AddMoney(0);
+        AddBlock(0);
     }
     public void AddBlock(int count)
     {
