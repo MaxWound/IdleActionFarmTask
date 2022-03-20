@@ -65,6 +65,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+       
+
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.tag == "WheatBlock")
         {
             GameObject thatBlock = other.gameObject;
@@ -80,11 +86,6 @@ public class PlayerController : MonoBehaviour
 
 
         }
-
-
-    }
-    private void OnTriggerStay(Collider other)
-    {
         if (other.gameObject.tag == "Ambar" && droppingBlock != true)
         {
             DropBlockToAmbar();
