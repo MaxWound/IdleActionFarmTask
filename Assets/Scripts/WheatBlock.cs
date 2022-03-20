@@ -6,7 +6,7 @@ using DG.Tweening;
 public class WheatBlock : MonoBehaviour
 {
     UIScript uiscript;
-    float duration = 0.01f;
+    float duration = 0.1f;
     Transform BackTransform;
     Transform AmbarTransform;
     public WheatBlockSO wheatBlockSO;
