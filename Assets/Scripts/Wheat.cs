@@ -6,6 +6,8 @@ using UnityEngine;
 public class Wheat : MonoBehaviour
 // Start is called before the first frame update
 {
+    [SerializeField]
+    GameObject BlockSpawner;
     WheatScript wheatScript;
     public GameObject Serp;
     public int CountOfWheat;
@@ -14,7 +16,7 @@ public class Wheat : MonoBehaviour
     public Vector3 blockSpawnerPos;
     private void Start()
     {
-        blockSpawnerPos = transform.GetChild(0).transform.position;
+        blockSpawnerPos = BlockSpawner.transform.position;
         Serp = GameObject.Find("Serp");
         wheatScript = GameObject.Find("Ambar").GetComponent<WheatScript>();
     }

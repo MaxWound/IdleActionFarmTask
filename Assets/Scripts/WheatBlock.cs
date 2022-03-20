@@ -6,16 +6,20 @@ using DG.Tweening;
 public class WheatBlock : MonoBehaviour
 {
     UIScript uiscript;
-     float duration = 0.01f;
-    public Transform BackTransform;
+    float duration = 0.01f;
+    Transform BackTransform;
+    Transform AmbarTransform;
     public WheatBlockSO wheatBlockSO;
-    private bool toPickUp = false;
+    public bool toPickUp = false;
+    public bool toDrop = false;
+    public bool pickable = true;
     private void Start()
     {
         uiscript = GameObject.Find("PlayerCanvas").GetComponent<UIScript>();
         BackTransform = GameObject.Find("BackPack").GetComponent<Transform>();
+        AmbarTransform = GameObject.Find("Ambar").GetComponent<Transform>();
     }
-    
+
     private void Update()
     {
         if (toPickUp)
@@ -25,13 +29,12 @@ public class WheatBlock : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, BackTransform.position, duration);
             }
         }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.tag == "BlockCollector")
+        if (toDrop)
+            
         {
-            toPickUp = true;
+            transform.position = Vector3.Lerp(transform.position, AmbarTransform.position, duration);
         }
     }
+
     //transform.DOMove(BackTransform.position, duration);
 }

@@ -17,9 +17,15 @@ public class WheatSpawner : MonoBehaviour
     {
         if (timerTime >= delayTime && wheatSpawned != true)
         {
+            wheatSpawned = true;
             var newWheat = Instantiate(wheatToSpawn, wheatSpawnerObj.transform.position, Quaternion.Euler(-90, 0, Random.Range(0, 360)));
             newWheat.transform.parent = gameObject.transform;
-            wheatSpawned = true;
+            
+            timerTime = 0;
+            
+        }
+        else if (wheatSpawned == true)
+        {
             timerTime = 0;
         }
         else

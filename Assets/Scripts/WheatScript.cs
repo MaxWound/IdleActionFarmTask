@@ -10,10 +10,7 @@ public class WheatScript : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            BreakWheat(testGameObject);
-        }
+       
 
     }
     private void Start()
@@ -36,6 +33,7 @@ public class WheatScript : MonoBehaviour
 
         Transform WheatTransform = wheat.gameObject.transform;
         WheatTransform.transform.GetComponentInParent<WheatSpawner>().wheatSpawned = false;
+
         Vector3 WheatPos = WheatTransform.position;
         Quaternion WheatRot = WheatTransform.rotation;
         GameObject brokenWheat = wheat.GetComponent<Wheat>().brokenWheat;
@@ -45,6 +43,7 @@ public class WheatScript : MonoBehaviour
         GameObject newBrokenWheat = Instantiate(brokenWheat, WheatPos, Quaternion.Euler(0, Random.Range(0,360) , 0));
         GameObject newBlock = Instantiate(wheatBlock, spawnBlockPos   , Quaternion.Euler(0, Random.Range(0, 360), 0));
         newBlock.transform.parent = null;
+       
         LifeOfBrokenWheat(newBrokenWheat);
         
         

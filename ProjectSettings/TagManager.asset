@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WheatBlock
   - BlockCollector
+  - Ambar
   layers:
   - Default
   - TransparentFX

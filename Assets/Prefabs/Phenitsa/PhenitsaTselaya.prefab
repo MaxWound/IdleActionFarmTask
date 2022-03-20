@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16eedc9dc6ead4d47bcf1ea441a6fb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlockSpawner: {fileID: 862629790644028842}
   Serp: {fileID: 0}
   CountOfWheat: 1
   brokenWheat: {fileID: 285582075238358355, guid: 550dd0557d11e504c863301a63f53f57, type: 3}

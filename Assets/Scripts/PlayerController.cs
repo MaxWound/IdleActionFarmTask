@@ -5,12 +5,16 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    Transform ambarTransform;
     Transform backpackTransform;
     CharacterController controller;
     Joystick joystick;
     Animator animator;
     UIScript uiscript;
     Animator backpack_animator;
+    [SerializeField]
+    GameObject wheatBlock;
+    private bool droppingBlock;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,22 +65,64 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "WheatBlock")
+        if (other.gameObject.tag == "WheatBlock")
         {
-            PickUpLogic(other.gameObject);
+            GameObject thatBlock = other.gameObject;
+            if (thatBlock.GetComponent<WheatBlock>().pickable == true)
+            {
+                if (uiscript.invFull != true && thatBlock.GetComponent<WheatBlock>().toDrop != true)
+                {
+                    PickUpLogic(thatBlock);
+                    thatBlock.GetComponent<WheatBlock>().toPickUp = true;
+
+                }
+            }
+
 
         }
+
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Ambar" && droppingBlock != true)
+        {
+            DropBlockToAmbar();
+        }
+        
     }
     void PickUpLogic(GameObject block)
     {
+        block.GetComponent<WheatBlock>().pickable = false;
         uiscript.AddBlock(block.GetComponent<WheatBlock>().wheatBlockSO.Count);
-        BlockToBack();
+        
         StartCoroutine(DestroyWithDelay(block, 0.5f));
     }
-    void BlockToBack()
+    
+    void DropBlockToAmbar()
     {
-
-        backpackTransform.DOScale(new Vector3(2, 2, 2), 2);
+        if (uiscript.BlocksCount != 0)
+        {
+            
+            GameObject newBlock = Instantiate(wheatBlock, transform.position, Quaternion.identity);
+            newBlock.GetComponent<WheatBlock>().toDrop = true;
+            StartCoroutine(ToDropWithDelay(0.1f));
+            uiscript.AddBlock(-1);
+            uiscript.AddBlockToAmbar();
+        }
+        else
+        {
+            print("Here is no blocks");
+        }
+    }
+    IEnumerator ToDropWithDelay(float delay)
+    {
+        droppingBlock = true;
+        yield return new WaitForSeconds(delay);
+        droppingBlock = false;
+        
+         
+        
     }
     IEnumerator DestroyWithDelay(GameObject go, float seconds)
     {
