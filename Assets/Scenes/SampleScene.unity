@@ -3111,6 +3111,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrokeAnim: {fileID: 0}
   testGameObject: {fileID: 0}
+--- !u!65 &1551620862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551620856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015773986, y: 0.019462198, z: 0.85747886}
+  m_Center: {x: -0.0024250147, y: 0, z: 0.41873944}
 --- !u!4 &1558063826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1391764729545693868, guid: c16d6b790e6888642b6fea50aee67c78, type: 3}
