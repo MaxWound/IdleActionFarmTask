@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
             GameObject newBlock = Instantiate(wheatBlock, transform.position, Quaternion.identity);
             newBlock.GetComponent<WheatBlock>().toDrop = true;
             StartCoroutine(ToDropWithDelay(0.1f));
+            StartCoroutine(DestroyWithDelay(newBlock, 0.5f));
             uiscript.AddBlock(-1);
             uiscript.AddBlockToAmbar();
         }
